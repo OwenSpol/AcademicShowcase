@@ -1,0 +1,109 @@
+Name,Lat,Long,Region,Division
+Alabama,33.2114385,-87.5401002,Southeast,1
+Alabama - B,33.2114385,-87.5401002,Southeast,2
+American,38.9380155,-77.088922,Central,1
+App State,36.2135628,-81.6843218,South,1
+App State - B,36.2135628,-81.6843218,South,2
+Auburn,32.5980549,-85.4942667,Southeast,1
+Binghamton,42.0894288,-75.9694885,North,1
+Binghamton - B,42.0894288,-75.9694885,North-East,2
+Brockport,43.2103785,-77.9508077,North-West,2
+Buffalo,43.0018111,-78.7895239,North,1
+Buffalo - B,43.0018111,-78.7895239,North-West,2
+Canisius,42.9237929,-78.8550954,North-West,2
+Carleton,45.3875848,-75.6960158,North,1
+Carnegie Mellon,40.4432027,-79.9428499,Central-West,2
+Case Western Reserve,41.5043413,-81.6083838,Central-West,2
+Central Florida,28.6024274,-81.2000599,Southeast,1
+Clarkson,44.6639493,-74.9990832,North-East,2
+Coastal Carolina,33.7961194,-79.0136958,South,1
+Coastal Carolina - B,33.7961194,-79.0136958,South,2
+Cornell,42.4534492,-76.4735027,North,1
+Cortland,42.599001,-76.187797,North,1
+Delaware,39.6779504,-75.7506114,Central,1
+Delaware - B,39.6779504,-75.7506114,Central-East,2
+Duke,36.0014258,-78.9382286,South,2
+Elon,36.1028244,-79.5023649,South,2
+Emory,33.7971368,-84.32224,Southeast,2
+Florida,29.6465428,-82.3533266,Southeast,1
+Florida International,25.7562465,-80.3755401,Southeast,1
+Florida State,30.4418778,-84.2984889,Southeast,1
+Fordham,40.8614567,-73.8852771,North-East,2
+Franciscan,40.376449,-80.6208487,Central-West,2
+Geneseo,42.7960069,-77.8238627,North-West,2
+George Mason,38.8314578,-77.3117471,South,1
+George Washington,38.8991756,-77.0470916,Central,1
+Georgetown,38.9076089,-77.0722585,Central,1
+Georgia Southern,32.4206845,-81.7869734,Southeast,2
+Georgia State,33.75306,-84.38528,Southeast,2
+Georgia Tech,33.7756178,-84.396285,Southeast,1
+Georgia Tech - B,33.7756178,-84.396285,Southeast,2
+Grove City,41.1557924,-80.0815357,Central-West,2
+High Point,35.9765381,-79.9976255,South,2
+Hofstra,40.7168988,-73.5990378,North,1
+Indiana (PA),40.61439,-79.16102,Central-West,2
+James Madison,38.435092,-78.8697548,South,1
+James Madison - B,38.435092,-78.8697548,South,2
+John Carroll,41.4905602,-81.5297689,Central-West,2
+Johns Hopkins,39.3299013,-76.6205177,Central,1
+Lehigh,40.605388,-75.3772863,Central-East,2
+Liberty,37.3492244,-79.1784123,South,1
+Liberty - B,37.3492244,-79.1784123,South,2
+Loyola,39.3476737,-76.6172375,Central-East,2
+Mary Washington,38.3013039,-77.47447,South,2
+Maryland,38.9869183,-76.9425543,Central,1
+Maryland - B,38.9869183,-76.9425543,Central-East,2
+Miami,25.7173947,-80.2781262,Southeast,1
+Miami - B,25.7173947,-80.2781262,Southeast,2
+Navy,38.9808758,-76.4854969,Central,1
+NC State,35.7850744,-78.6812824,South,1
+Niagara,43.1369816,-79.0349955,North-West,2
+North Carolina,35.9049122,-79.0469134,South,1
+North Carolina - B,35.9049122,-79.0469134,South,2
+Northeastern,42.339904,-71.0898892,North,1
+Oberlin,41.2958696,-82.221089,Central-West,2
+Oswego,43.4508509,-76.5434378,North-East,2
+Ottawa,45.4231064,-75.6831329,North,1
+Penn State,40.7982133,-77.8599084,Central,1
+Penn State - B,40.7982133,-77.8599084,Central-East,2
+Penn State Behrend,42.1198964,-79.9827376,North-West,2
+Pennsylvania,39.9522188,-75.1932137,Central,1
+Pennsylvania - B,39.9522188,-75.1932137,Central-East,2
+Pittsburgh,40.4440279,-79.9605375,Central,1
+Pittsburgh - B,40.4440279,-79.9605375,Central-East,2
+Richmond,37.5758243,-77.5397192,South,2
+RIT,43.0848487,-77.6715355,North,1
+RIT - B,43.0848487,-77.6715355,North-West,2
+Robert Morris,40.5213461,-80.2127179,Central-West,2
+Rochester,43.1305531,-77.6260033,North-West,2
+RPI,42.7297628,-73.6788884,North,1
+RPI - B,42.7297628,-73.6788884,North-East,2
+Rutgers,40.5008405,-74.4474174,Central,1
+Rutgers - B,40.5008405,-74.4474174,Central-East,2
+Siena,42.7189496,-73.7513323,North-East,2
+South Carolina,33.9937575,-81.0299186,Southeast,1
+South Florida,28.0587031,-82.4138539,Southeast,1
+St. Bonaventure,42.0785768,-78.4829439,North-West,2
+Stony Brook,40.908119,-73.1204032,North,1
+Stony Brook - B,40.908119,-73.1204032,North-East,2
+Syracuse,43.0386502,-76.1336922,North,1
+Syracuse - B,43.0386502,-76.1336922,North-East,2
+Syracuse - C,43.0386502,-76.1336922,North-East,2
+Tampa,27.9453715,-82.4659336,Southeast,2
+Temple,39.9811911,-75.1553563,Central,1
+UMBC,39.2553955,-76.7106829,Central-East,2
+UNC Charlotte,35.3070929,-80.735164,South,2
+UNC Greensboro,36.0655863,-79.8130383,South,1
+UNC Wilmington,34.2292635,-77.8733814,South,2
+Vanderbilt,36.1447034,-86.8026551,Southeast,2
+Virginia,38.0335529,-78.5079772,South,1
+Virginia Commonwealth,37.5526695,-77.4527359,South,2
+Virginia Tech,37.2283843,-80.4234167,South,1
+Virginia Tech - B,37.2283843,-80.4234167,South,2
+Virginia Tech - C,37.2283843,-80.4234167,South,2
+Wake Forest,36.1354887,-80.2792887,South,2
+West Virginia,39.6480359,-79.9697147,Central,1
+West Virginia - B,39.6480359,-79.9697147,Central-East,2
+William & Mary,37.2709753,-76.7162467,South,2
+William & Mary - B,37.2709753,-76.7162467,South,2
+Youngstown State,41.1066413,-80.6480952,Central-West,2
