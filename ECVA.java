@@ -29,6 +29,9 @@ class ECVA{
             division.add(Integer.parseInt(s.substring(split+1)));
         }
         scan.close();
+
+        // Sorting data
+        sortTeams(teams, lng, lat, region, division);
     }
 
 
@@ -76,5 +79,87 @@ class ECVA{
         return Math.acos(Math.cos(rlat1) * Math.cos(rlng1) * Math.cos(rlat2) * Math.cos(rlng2) +
                 Math.cos(rlat1) * Math.sin(rlng1) * Math.cos(rlat2) * Math.sin(rlng2) +
                 Math.sin(rlat1) * Math.sin(rlat2)) * EARTH_RADIUS;
+    }
+    
+    /**
+     * Method to sort the data by the region and division they are from
+     * 
+     * @param teams list of team names
+     * @param lng list of latitudes corresponding with each team
+     * @param lat list of longitudes corresponding with each team
+     * @param region list of regions corresponding with each team
+     * @param division list of divisions corresponding with each team
+     */
+    public static void sortTeams (ArrayList<String> teams, ArrayList<Double> lng, ArrayList<Double> lat, ArrayList<String> region, ArrayList<Integer> division){
+        // List of teams
+        ArrayList<Teams> teamList = new ArrayList<>();
+
+        // Adds all team info together into teamList
+        for(int i = 0; i < teams.size(); i++){
+            teamList.add(new Teams(teams.get(i), lng.get(i), lat.get(i), region.get(i), division.get(i)));
+        }
+
+        // Use a comparator to sort list
+        Collections.sort(teamList, new Comparator<Teams>() {
+            @Override
+            public int compare(Teams team1, Teams team2){
+                if(team1.getRegion().compareTo(team2.getRegion()) != 0){
+                    return team1.getRegion().compareTo(team2.getRegion());
+                }
+                return Integer.compare(team1.getDivision(), team2.getDivision());
+            }
+        });
+
+        /*
+        // Prints team region and divison to confirm correct sorting
+        for(Teams teamData : teamList){
+            System.out.println(teamData.getRegion() + " " + teamData.getDivision());
+        }
+        */
+    }
+
+    /**
+     * Class to store the data about the teams
+     */
+    public static class Teams {
+        private String team;
+        private double lng;
+        private double lat;
+        private String region;
+        private int division;
+
+        public Teams (String team, double lng, double lat, String region, int division){
+            this.team = team;
+            this.lng = lng;
+            this.lat = lat;
+            this.region = region;
+            this.division = division;
+        }
+
+        // Getter for team
+        public String getTeam(){
+            return team;
+        }
+        
+        // Getter for longitude
+        public double getLng(){
+            return lng;
+        }
+
+        // Getter for latitude
+        public double getLat(){
+            return lat;
+        }
+
+        // Getter for region
+        public String getRegion(){
+            return region;
+        }
+
+        // Getter for division
+        public int getDivision(){
+            return division;
+        }
+
     }
 }
