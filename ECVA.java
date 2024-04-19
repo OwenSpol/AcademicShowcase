@@ -45,7 +45,6 @@ class ECVA{
         }
 
         for(int i = 0; i < regions.size(); i++){
-        //for(int i = 4; i < 5; i++){
             ArrayList<Teams> inRegion = new ArrayList<Teams>();
             for(int j = 0; j < teamList.size(); j++){
                 if(regions.get(i).equals(teamList.get(j).getRegion() + " " + teamList.get(j).getDivision())){
@@ -77,7 +76,6 @@ class ECVA{
                 best = dist;
                 host = i;
             }
-            //System.out.println(dist);
         }
         return host;
     }
