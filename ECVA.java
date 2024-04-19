@@ -11,6 +11,7 @@ class ECVA{
         ArrayList<Double> lat = new ArrayList<Double>();
         ArrayList<String> region = new ArrayList<String>();
         ArrayList<Integer> division = new ArrayList<Integer>();
+        ArrayList<Teams> teamList = new ArrayList<>();
         //Puts all the data in arrayLists.
         String s = scan.nextLine();
         while(scan.hasNext()){
@@ -31,7 +32,29 @@ class ECVA{
         scan.close();
 
         // Sorting data
-        sortTeams(teams, lng, lat, region, division);
+        teamList = sortTeams(teams, lng, lat, region, division);
+
+        
+        //ArrayList of all region names
+        ArrayList<String> regions = new ArrayList<String>();
+        regions.add(teamList.get(0).getRegion() + " " + teamList.get(0).getDivision());
+        for(int i = 1; i < teamList.size(); i ++){
+            if(!(teamList.get(i - 1).getRegion() + teamList.get(i - 1).getDivision()).equals(teamList.get(i).getRegion() + teamList.get(i).getDivision())){
+                regions.add(teamList.get(i).getRegion() + " " + teamList.get(i).getDivision());
+            }
+        }
+
+        for(int i = 0; i < regions.size(); i++){
+        //for(int i = 4; i < 5; i++){
+            ArrayList<Teams> inRegion = new ArrayList<Teams>();
+            for(int j = 0; j < teamList.size(); j++){
+                if(regions.get(i).equals(teamList.get(j).getRegion() + " " + teamList.get(j).getDivision())){
+                    inRegion.add(teamList.get(j));
+                }
+            }
+            int best = bestHost(inRegion);
+            System.out.println(regions.get(i) + ": " + inRegion.get(best).getTeam());
+        }
     }
 
 
@@ -42,18 +65,19 @@ class ECVA{
      * @param lat Those team lattitude
      * @return The index of the best host, that is on average the closest to everyone
      */
-    public static int bestHost(ArrayList<Double> lng, ArrayList<Double> lat){
+    public static int bestHost(ArrayList<Teams> teamList){
         double best = -1;
         int host = -1;
-        for(int i = 0; i < lng.size(); i++){
+        for(int i = 0; i < teamList.size(); i++){
             double dist = 0;
-            for(int j = 0; j < lng.size(); j++){
-                dist += getDist(lng.get(i), lat.get(j), lng.get(i), lat.get(j));
+            for(int j = 0; j < teamList.size(); j++){
+                dist += getDist(teamList.get(i).getLng(), teamList.get(i).getLat(), teamList.get(j).getLng(), teamList.get(j).getLat());
             }
             if (dist < best || best < 0){
                 best = dist;
                 host = i;
             }
+            //System.out.println(dist);
         }
         return host;
     }
@@ -90,7 +114,7 @@ class ECVA{
      * @param region list of regions corresponding with each team
      * @param division list of divisions corresponding with each team
      */
-    public static void sortTeams (ArrayList<String> teams, ArrayList<Double> lng, ArrayList<Double> lat, ArrayList<String> region, ArrayList<Integer> division){
+    public static ArrayList<Teams> sortTeams (ArrayList<String> teams, ArrayList<Double> lng, ArrayList<Double> lat, ArrayList<String> region, ArrayList<Integer> division){
         // List of teams
         ArrayList<Teams> teamList = new ArrayList<>();
 
@@ -108,7 +132,8 @@ class ECVA{
                 }
                 return Integer.compare(team1.getDivision(), team2.getDivision());
             }
-        });
+        }); 
+        return teamList;
 
         /*
         // Prints team region and divison to confirm correct sorting
