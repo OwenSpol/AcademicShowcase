@@ -84,6 +84,7 @@ public class AStar {
      * args[3]: (optional) .pth file name for mappable route
      */
     public static void main(String args[]) throws IOException {
+    double timer = System.currentTimeMillis();
 
 	// check for command-line parameters
 	if (args.length != 3 && args.length != 4) {
@@ -236,5 +237,8 @@ public class AStar {
 
 	    pw.close();
 	}
+        timer = System.currentTimeMillis()- timer;
+        timer /= 1000;
+        System.out.println(args[0] + " " + g.numEdges + " " + timer);
     }
 }
