@@ -87,7 +87,7 @@ public class AStar {
     double timer = System.currentTimeMillis();
 
 	// check for command-line parameters
-	if (args.length != 3 && args.length != 4) {
+	if (args.length != 3 && args.length != 4 && args.length != 1) {
 	    System.err.println("Usage: java A* graphfile start destination [pthfile]");
 	    System.exit(1);
 	}
@@ -100,8 +100,11 @@ public class AStar {
 	    System.out.println("Successfully read graph " + args[0] + " with |V|=" + g.vertices.length + " |E|=" + g.numEdges);
 	}
 
+
+    int startNum = (int)(Math.random() * g.vertices.length);
+    
 	// find the vertex objects for the starting and destination points
-	HighwayVertex start = g.getVertexByName(args[1]);
+	HighwayVertex start = g.vertices[startNum];//g.getVertexByName(args[1]);
 	if (start == null) {
 	    System.err.println("No vertex found with label " + args[1]);
 	    System.exit(1);
@@ -110,7 +113,8 @@ public class AStar {
 	    System.out.println("Start: " + start.label + ", vertexNum=" + start.vNum);
 	}
 
-	HighwayVertex dest = g.getVertexByName(args[2]);
+    int endNum = (int)(Math.random() * g.vertices.length);
+	HighwayVertex dest = g.vertices[endNum];//g.getVertexByName(args[2]);
 	if (dest == null) {
 	    System.err.println("No vertex found with label " + args[2]);
 	    System.exit(1);
@@ -239,6 +243,6 @@ public class AStar {
 	}
         timer = System.currentTimeMillis()- timer;
         timer /= 1000;
-        System.out.println(args[0] + " " + g.numEdges + " " + timer);
+        System.out.println(args[0] + " " + g.numEdges + " " + timer + " " + start.label + " " + dest.label);
     }
 }
