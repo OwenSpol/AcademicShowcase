@@ -84,11 +84,12 @@ public class AStar {
      * args[3]: (optional) .pth file name for mappable route
      */
     public static void main(String args[]) throws IOException {
+    for(int q = 0; q < 10; q++){
     double timer = System.currentTimeMillis();
 
 	// check for command-line parameters
 	if (args.length != 3 && args.length != 4 && args.length != 1) {
-	    System.err.println("Usage: java A* graphfile start destination [pthfile]");
+	    //System.err.println("Usage: java A* graphfile start destination [pthfile]");
 	    System.exit(1);
 	}
 	
@@ -97,7 +98,7 @@ public class AStar {
         HighwayGraph g = new HighwayGraph(s);
         s.close();
 	if (DEBUG) {
-	    System.out.println("Successfully read graph " + args[0] + " with |V|=" + g.vertices.length + " |E|=" + g.numEdges);
+	    //System.out.println("Successfully read graph " + args[0] + " with |V|=" + g.vertices.length + " |E|=" + g.numEdges);
 	}
 
 
@@ -106,21 +107,21 @@ public class AStar {
 	// find the vertex objects for the starting and destination points
 	HighwayVertex start = g.vertices[startNum];//g.getVertexByName(args[1]);
 	if (start == null) {
-	    System.err.println("No vertex found with label " + args[1]);
+	    //System.err.println("No vertex found with label " + args[1]);
 	    System.exit(1);
 	}
 	if (DEBUG) {
-	    System.out.println("Start: " + start.label + ", vertexNum=" + start.vNum);
+	    //System.out.println("Start: " + start.label + ", vertexNum=" + start.vNum);
 	}
 
     int endNum = (int)(Math.random() * g.vertices.length);
 	HighwayVertex dest = g.vertices[endNum];//g.getVertexByName(args[2]);
 	if (dest == null) {
-	    System.err.println("No vertex found with label " + args[2]);
+	    //System.err.println("No vertex found with label " + args[2]);
 	    System.exit(1);
 	}
 	if (DEBUG) {
-	    System.out.println("Dest: " + dest.label + ", vertexNum=" + dest.vNum);
+	    //System.out.println("Dest: " + dest.label + ", vertexNum=" + dest.vNum);
 	}
 
 	// perform A* algorithm to build a Map of vertices to
@@ -147,7 +148,7 @@ public class AStar {
         HighwayVertex trueDest = g.vertices[e.dest];
         double crossDist = trueDest.point.distanceTo(dest.point);
 	    if (DEBUG) {
-		System.out.println("pq.add(" + (e.length + crossDist) + ", edge to " + g.vertices[e.dest].label + " via " + e.label + ")");
+		//System.out.println("pq.add(" + (e.length + crossDist) + ", edge to " + g.vertices[e.dest].label + " via " + e.label + ")");
 	    }
 	    pq.add(new PQEntry(e.length + crossDist, e, dest));
 	    e = e.next;
@@ -166,13 +167,13 @@ public class AStar {
 		nextPQ = pq.remove();
 		nextEdge = nextPQ.lastEdge;
 		if (DEBUG) {
-		    System.out.println("pq.remove(): " + nextPQ.totalDist + ", edge to " + g.vertices[nextEdge.dest].label + ", visited=" + g.vertices[nextEdge.dest].visited);
+		    //System.out.println("pq.remove(): " + nextPQ.totalDist + ", edge to " + g.vertices[nextEdge.dest].label + ", visited=" + g.vertices[nextEdge.dest].visited);
 		}
 	    } while (g.vertices[nextEdge.dest].visited);
 
 	    // we found a shortest path to a new vertex
 	    if (DEBUG) {
-		System.out.println("Found shortest path to " + g.vertices[nextEdge.dest].label);
+		//System.out.println("Found shortest path to " + g.vertices[nextEdge.dest].label);
 	    }
 	    result.put(g.vertices[nextEdge.dest].label, nextEdge);
 	    g.vertices[nextEdge.dest].visited = true;
@@ -185,14 +186,14 @@ public class AStar {
 		while (e != null) {
 		    if (g.vertices[e.dest].visited) {
 			if (DEBUG) {
-			    System.out.println("Found edge to previously visited vertex " + g.vertices[e.dest].label);
+			    //System.out.println("Found edge to previously visited vertex " + g.vertices[e.dest].label);
 			}
 		    }
 		    else {
             HighwayVertex trueDest = g.vertices[e.dest];
             double crossDist = trueDest.point.distanceTo(dest.point);
 			if (DEBUG) {
-			    System.out.println("pq.add(" + (nextPQ.totalDist + e.length + crossDist) + ", edge to " + g.vertices[e.dest].label + " via " + e.label + ")");
+			    //System.out.println("pq.add(" + (nextPQ.totalDist + e.length + crossDist) + ", edge to " + g.vertices[e.dest].label + " via " + e.label + ")");
 			}
 			pq.add(new PQEntry(nextPQ.totalDist + e.length + crossDist, e, dest));
 		    }
@@ -215,13 +216,13 @@ public class AStar {
 	
 	DecimalFormat df = new DecimalFormat("0.00");
 
-	System.out.println("Detailed directions:");
+	//System.out.println("Detailed directions:");
 	// report results
 	double totalLength = 0.0;
 	for (int i = path.size() - 1; i >= 0; i--) {
 	    HighwayEdge hop = path.get(i);
 	    totalLength += hop.length;
-	    System.out.println("Travel from " + g.vertices[hop.source].label + " to " + g.vertices[hop.dest].label + " for " + df.format(hop.length) + " along " + hop.label + ", total " + df.format(totalLength));
+	    //System.out.println("Travel from " + g.vertices[hop.source].label + " to " + g.vertices[hop.dest].label + " for " + df.format(hop.length) + " along " + hop.label + ", total " + df.format(totalLength));
 	}
 
 	// if there was an output filename given, also write in .pth format
@@ -243,6 +244,7 @@ public class AStar {
 	}
         timer = System.currentTimeMillis()- timer;
         timer /= 1000;
-        System.out.println(args[0] + " " + g.numEdges + " " + timer + " " + start.label + " " + dest.label);
+        System.out.println(args[0] + " " + g.vertices.length + " " + g.numEdges + " " + timer + " " + start.label + " " + dest.label);
     }
+}
 }
